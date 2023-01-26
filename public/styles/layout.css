@@ -18,6 +18,32 @@ body {
   color: #545149;
   background-color: #f4f1ec;
   font-size: 24px;
+  font-family: "Source Sans Pro";
+}
+
+nav {
+  font-family: "Bungee";
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+.right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+main {
+  padding-left: 10%;
+  padding-right: 10%;
+  display: flex;
+  flex-direction: column;
+  background-color: #ec9508;
 }
 
 /*
