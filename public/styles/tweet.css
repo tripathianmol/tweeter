@@ -1,0 +1,36 @@
+#tweets {
+  padding: 5%;
+}
+
+article.tweet {
+  background-color: blanchedalmond;
+  border: 4px solid;
+  border-color: black;
+  border-radius: 2% 2%;
+  padding: 5%;
+}
+
+article.tweet:hover {
+  box-shadow: 5px 5px 2px;
+}
+
+article.tweet header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+article.tweet footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+article.tweet p {
+  border-bottom: 3px solid;
+  border-color: black;
+}
+
+i.icon:hover {
+  color: orange;
+}
