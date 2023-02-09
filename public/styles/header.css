@@ -1,10 +1,23 @@
-#head {
+#header {
   height: 520px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
-  background-color: #8a008a;
+  background-color: #ec9508;
   background-image: url("https://www.transparenttextures.com/patterns/3px-tile.png");
   color: white;
+}
+
+@media only screen and (min-width: 1024px) {
+  #header {
+    background-color: #ec9508;
+    background-image: url("https://www.transparenttextures.com/patterns/3px-tile.png");
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    padding-top: 120px;
+  }
 }

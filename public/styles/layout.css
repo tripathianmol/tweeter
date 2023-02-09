@@ -16,7 +16,7 @@ html {
 
 body {
   color: #545149;
-  background-color: #f4f1ec;
+  background-color: #ec9508;
   font-size: 24px;
   font-family: "Source Sans Pro";
 }
@@ -44,8 +44,28 @@ main {
   display: flex;
   flex-direction: column;
   background-color: #ec9508;
+  height: 100%;
+}
+
+#error {
+  display: flex;
+  justify-content: center;
+  padding: 1%;
 }
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+
+ @media only screen and (min-width: 1024px) {
+  body {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  main {
+    padding-top: 200px;
+  }
+ }
