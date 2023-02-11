@@ -43,17 +43,18 @@
     </nav>
     <header id="header">
       <div>
-          <img src="/images/profile-hex.png"> 
+        <img src="/images/profile-hex.png"> 
       </div>
       <br>
       <div>
-          <h2>Anon User</h2>
+        <h2>Anon User</h2>
       </div>
     </header>
   
 
     <!-- Page-specific (main) content here -->
     <main class="container">
+      <!-- New tweet section -->
       <section class="new-tweet">
         <h2>Compose Tweet</h2>
         <form id="form">
@@ -67,9 +68,12 @@
           </div>
         </form>
       </section>
+      <!-- Error placeholder -->
       <section id="error">
-        <p id="errorMessage">Error: empty tweet or more than 140 characters.</p>
+        <p id="emptyError">Error: empty tweet.</p>
+        <p id="lengthError">Error: More than 140 characters.</p>
       </section>
+      <!-- Tweets container -->
       <section id="tweets">
       </section>
     </main>

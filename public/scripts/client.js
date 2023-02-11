@@ -1,5 +1,7 @@
 $(document).ready(() => {
   $("#error").hide();
+  $("#emptyError").hide();
+  $("#lengthError").hide();
 
   const escape = function(str) {
     let div = document.createElement("div");
@@ -38,29 +40,48 @@ $(document).ready(() => {
     return $tweet;
   };
 
+  // Renders all tweets to the tweets section
   const renderTweets = function(tweets) {
+    let tweetsArray = [];
     for (let tweet of tweets) {
       let tweetHTML = createTweetElement(tweet);
-      $('#tweets').append(tweetHTML);
+      tweetsArray.push(tweetHTML);
+    }
+
+    for (let i = tweetsArray.length - 1; i >= 0; i--) {
+      $('#tweets').append(tweetsArray[i]);
     }
   };
 
+  // Loads tweets and renders data
   const loadTweets = function() {
     $.get("/tweets", renderTweets);
   };
 
+  // Load the tweets on page load
   loadTweets();
 
+  // Add tweet to
   $('#form').submit(function(event) {
     let tweet = $('#tweet-text').val();
     
     event.preventDefault();
-    if (tweet === "" || tweet.length > 140) {
-      alert("Tweet too long or empty.");
+    if (tweet === "") {
       $("#error").show();
+      $("#emptyError").show();
+    } else if (tweet.length > 140) {
+      $("#error").show();
+      $("#lengthError").show();
     } else {
       $("#error").hide();
-      $.post('/tweets', $('#form').serialize()).done(() => loadTweets());
+      $("#emptyError").hide();
+      $("#lengthError").hide();
+      $("#tweets").empty();
+      $.post('/tweets', $('#form').serialize())
+        .done(() => loadTweets())
+        .catch(() => {
+          alert("Error posting tweet.");
+        });
     }
   });
 });
