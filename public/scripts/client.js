@@ -9,6 +9,7 @@ $(document).ready(() => {
     return div.innerHTML;
   };
 
+  // Creates individual tweet element
   const createTweetElement = function(obj) {
     const $tweet = $(`
   <article class="tweet">
@@ -69,9 +70,11 @@ $(document).ready(() => {
     event.preventDefault();
     if (tweet === "") {
       $("#error").show();
+      $("#lengthError").hide();
       $("#emptyError").show();
     } else if (tweet.length > 140) {
       $("#error").show();
+      $("#emptyError").hide();
       $("#lengthError").show();
     } else {
       $("#error").hide();
