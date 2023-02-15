@@ -48,6 +48,7 @@ $(document).ready(() => {
       tweetsArray.push(tweetHTML);
     }
 
+    // Append in reverse
     for (let i = tweetsArray.length - 1; i >= 0; i--) {
       $('#tweets').append(tweetsArray[i]);
     }
@@ -61,7 +62,7 @@ $(document).ready(() => {
   // Load the tweets on page load
   loadTweets();
 
-  // Add tweet to
+  // Add tweet to tweets container
   $('#form').submit(function(event) {
     let tweet = $('#tweet-text').val();
     
@@ -76,9 +77,13 @@ $(document).ready(() => {
       $("#error").hide();
       $("#emptyError").hide();
       $("#lengthError").hide();
-      $("#tweets").empty();
+      $("#tweets").empty(); //empty tweets container
       $.post('/tweets', $('#form').serialize())
-        .done(() => loadTweets())
+        .done(() => {
+          loadTweets();
+          $('#tweet-text').val("");
+          $('.counter').val("140");
+        })
         .catch(() => {
           alert("Error posting tweet.");
         });
